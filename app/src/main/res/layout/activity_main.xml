@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.samsung.clab.nikey.viewModel.MainViewModel" />
+        <import type="com.samsung.clab.nikey.model.Scenario" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        tools:context=".view.MainActivity">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="네이버 검색"
+            android:onClick="@{()->viewModel.onClicked(Scenario.NAVER)}"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="카톡"
+            android:onClick="@{()->viewModel.onClicked(Scenario.KAKAOTALK)}"/>
+    </LinearLayout>
+</layout>
