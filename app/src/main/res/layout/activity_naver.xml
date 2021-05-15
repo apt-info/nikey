@@ -9,167 +9,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical">
-        <androidx.appcompat.widget.LinearLayoutCompat
+        android:orientation="vertical"
+        android:background="#F5F6F8"
+        android:animateLayoutChanges="true">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
-            <Button
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_baseline_menu_24" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="신발"
-                android:onClick="@{()->viewModel.onClickShoes()}" />
-        </androidx.appcompat.widget.LinearLayoutCompat>
-        <WebView
-            android:id="@+id/webView"
+                android:src="@drawable/ic_naver_top_right" />
+        </LinearLayout>
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
-        <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_weight="1">
+            <RelativeLayout
+                android:layout_width="350dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/naver_search_background">
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:background="@android:color/transparent"
+                    android:layout_marginHorizontal="40dp"
+                    android:addTextChangedListener="@{viewModel.textWatcher}"
+                    android:hint="검색어를 입력해주세요." />
+            </RelativeLayout>
+        </RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="@{viewModel.shoesVisible}">
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/bts1" />
-                <FrameLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/item_background" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:layout_gravity="bottom"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="#CCFFFFFF"
-                        android:text="FILAxBTS RGB CRM" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:text="114,400원" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/bts2" />
-                <FrameLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/item_background" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="#CCFFFFFF"
-                        android:text="FILAxBTS RGB LGY" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:text="141,000원" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/bts3" />
-                <FrameLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/item_background" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="#CCFFFFFF"
-                        android:text="닥터마틴 [BTS 착용]" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:text="235,000원" />
-                </LinearLayout>
-            </FrameLayout>
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:src="@drawable/bts4" />
-                <FrameLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/item_background" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="bottom"
-                    android:layout_marginLeft="4dp"
-                    android:layout_marginBottom="4dp"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="12sp"
-                        android:textStyle="bold"
-                        android:textColor="#CCFFFFFF"
-                        android:text="스케쳐스 BTS 운동화" />
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="wrap_content"
-                        android:textSize="16sp"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        android:text="37,700" />
-                </LinearLayout>
-            </FrameLayout>
-        </LinearLayout>
+            android:paddingHorizontal="4dp"
+            android:background="#E6E6E6"
+            android:visibility="@{viewModel.itemsVisible}"
+            app:items="@{viewModel.items}"/>
     </LinearLayout>
 </layout>
